@@ -9,7 +9,7 @@ _ES6 most commonly used array methods_
 - [x] **filter** - obtain data from whose are over 65 years old;
 - [x] **forEach** - to include new properties once for each element in an object, in order;
 - [x] **reduce** - sum up the total of ages;
-- [] **find** - retrieve users from a specific state or city;
+- [x] **find** - retrieve first user from a specific state or city;
 - [] **some** - retrieve users from a specific state or city;
 - [] **every** - are all the users in _people_ from Brazil(BR)?
 - [] **sort** - organize properties in an object alphabetically, by name and age.

@@ -1,12 +1,14 @@
 const start = () => {
     doFilter();
-    console.log('Array with all elders, aged above 65 : ', doFilter()); //-> (22) [{…}, {…}, {…}, {…}, ...]
+    // console.log('Array with all elders, aged above 65 : ', doFilter()); //-> (22) [{…}, {…}, {…}, {…}, ...]
     doMap();
-    console.log('Array with all elders name and email: ', doMap()); //-> (100) [{…}, {…}, {…}, {…}, ...]
+    // console.log('Array with all elders name and email: ', doMap()); //-> (100) [{…}, {…}, {…}, {…}, ...]
     doForEach();
-    console.log('Elders now has retired property: ', doForEach()); //-> (22) [{…}, {…}, {…}, {…}, ...]
+    // console.log('Elders now has retired property: ', doForEach()); //-> (22) [{…}, {…}, {…}, {…}, ...]
     doReduce();
-    console.log('Sum of elderly people ages: ', doReduce()); //-> 1533
+    // console.log('Sum of elderly people ages: ', doReduce()); //-> 1533
+    doFind();
+    console.log('First Elderly person living in SP, on the filtered list: ', doFind()); //-> { {…}, email: "caroline.teixeira@example.com", …}
 };
 
 const doMap = () => {
@@ -38,6 +40,14 @@ const doReduce = () => {
         return acc + curr.dob.age;
     }, 0);
     return totalElderlyAges;
+};
+
+const doFind = () => {
+    const filteredElderly = doFilter();
+    const foundElderInSp = filteredElderly.find((person) => {
+        return person.location.state == 'São Paulo';
+    });
+    return foundElderInSp;
 };
 
 start();
