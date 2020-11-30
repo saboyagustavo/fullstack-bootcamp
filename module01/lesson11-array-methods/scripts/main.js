@@ -1,16 +1,33 @@
 const start = () => {
-    // console.log(mappedPeople()); //-> (100) [{…}, {…}, {…}, {…}, {…}, {…}, ...]
-    console.log(filteredPeople()); //-> (22)  [{…}, {…}, {…}, {…}, {…}, {…}, ...]
+    doFilter();
+    console.log('Array with all elders, aged above 65 : ', doFilter()); //-> (22) [{…}, {…}, {…}, {…}, ...]
+    doMap();
+    console.log('Array with all elders name and email: ', doMap()); //-> (100) [{…}, {…}, {…}, {…}, ...]
+    doForEach();
+    console.log('Elders now has retired property: ', doForEach()); //-> (100) [{…}, {…}, {…}, {…}, ...]
 };
 
-const mappedPeople = () =>
-    people.results.map((person) => {
+const doMap = () => {
+    const filteredElderly = doFilter();
+    const elderlyEmailArray = filteredElderly.map((person) => {
         return { name: person.name, email: person.email };
     });
+    return elderlyEmailArray;
+};
 
-const filteredPeople = () =>
-    people.results.filter((person) => {
+const doFilter = () => {
+    const elderlyPeople = people.results.filter((person) => {
         return person.dob.age >= 65;
     });
+    return elderlyPeople;
+};
+
+const doForEach = () => {
+    const mappedElderly = doMap();
+    mappedElderly.forEach((person) => {
+        person.retired = Math.random() < 0.5;
+    });
+    return mappedElderly;
+};
 
 start();

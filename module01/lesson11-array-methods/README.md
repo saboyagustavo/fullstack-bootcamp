@@ -7,7 +7,7 @@ _ES6 most commonly used array methods_
 - [x] **map** - return an object with _name_ and _email_ properties only;
 
 - [x] **filter** - obtain data from whose are over 65 years old;
-- [] **forEach** - include new properties in an object;
+- [x] **forEach** - to include new properties once for each element in an object, in order;
 - [] **reduce** - sum up the total of ages;
 - [] **find** - retrieve users from a specific state or city;
 - [] **some** - retrieve users from a specific state or city;
