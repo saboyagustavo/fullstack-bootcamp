@@ -11,6 +11,8 @@ const start = () => {
     console.log('\nFirst Elderly person living in SP, on the filtered list: ', doFind()); //-> { {…}, email: "caroline.teixeira@example.com", …}
     doSome();
     console.log('\nThere are any Elderly person, on the filtered list, living in TO? ', doSome()); //-> true
+    doEvery();
+    console.log('\nAre all the users in the filtered array from Brazil(BR) ', doEvery()); //-> true
 };
 
 const doMap = () => {
@@ -58,6 +60,14 @@ const doSome = () => {
         return person.location.state == 'Tocantins';
     });
     return thereIsElder;
+};
+
+const doEvery = () => {
+    const filteredElderly = doFilter();
+    const areBrazilian = filteredElderly.every((person) => {
+        return person.nat == 'BR';
+    });
+    return areBrazilian;
 };
 
 start();

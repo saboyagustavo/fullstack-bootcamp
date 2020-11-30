@@ -11,5 +11,5 @@ _ES6 most commonly used array methods_
 - [x] **reduce** - sum up the total of ages;
 - [x] **find** - retrieve first user from a specific state or city;
 - [x] **some** - obtain a truthy value from a search in each element;
-- [] **every** - are all the users in _people_ from Brazil(BR)?
+- [x] **every** - are all the users in the filtered array from Brazil(BR)?
 - [] **sort** - organize properties in an object alphabetically, by name and age.
