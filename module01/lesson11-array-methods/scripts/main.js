@@ -1,14 +1,16 @@
 const start = () => {
     doFilter();
-    // console.log('Array with all elders, aged above 65 : ', doFilter()); //-> (22) [{…}, {…}, {…}, {…}, ...]
+    console.log('Array with all elders, aged above 65 : ', doFilter()); //-> (22) [{…}, {…}, {…}, {…}, ...]
     doMap();
-    // console.log('Array with all elders name and email: ', doMap()); //-> (100) [{…}, {…}, {…}, {…}, ...]
+    console.log('\nArray with all elders name and email: ', doMap()); //-> (100) [{…}, {…}, {…}, {…}, ...]
     doForEach();
-    // console.log('Elders now has retired property: ', doForEach()); //-> (22) [{…}, {…}, {…}, {…}, ...]
+    console.log('\nElders now has retired property: ', doForEach()); //-> (22) [{…}, {…}, {…}, {…}, ...]
     doReduce();
-    // console.log('Sum of elderly people ages: ', doReduce()); //-> 1533
+    console.log('\nSum of elderly people ages: ', doReduce()); //-> 1533
     doFind();
-    console.log('First Elderly person living in SP, on the filtered list: ', doFind()); //-> { {…}, email: "caroline.teixeira@example.com", …}
+    console.log('\nFirst Elderly person living in SP, on the filtered list: ', doFind()); //-> { {…}, email: "caroline.teixeira@example.com", …}
+    doSome();
+    console.log('\nThere are any Elderly person, on the filtered list, living in TO? ', doSome()); //-> true
 };
 
 const doMap = () => {
@@ -48,6 +50,14 @@ const doFind = () => {
         return person.location.state == 'São Paulo';
     });
     return foundElderInSp;
+};
+
+const doSome = () => {
+    const filteredElderly = doFilter();
+    const thereIsElder = filteredElderly.some((person) => {
+        return person.location.state == 'Tocantins';
+    });
+    return thereIsElder;
 };
 
 start();
