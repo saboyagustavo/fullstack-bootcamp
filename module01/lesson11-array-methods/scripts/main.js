@@ -4,7 +4,9 @@ const start = () => {
     doMap();
     console.log('Array with all elders name and email: ', doMap()); //-> (100) [{…}, {…}, {…}, {…}, ...]
     doForEach();
-    console.log('Elders now has retired property: ', doForEach()); //-> (100) [{…}, {…}, {…}, {…}, ...]
+    console.log('Elders now has retired property: ', doForEach()); //-> (22) [{…}, {…}, {…}, {…}, ...]
+    doReduce();
+    console.log('Sum of elderly people ages: ', doReduce()); //-> 1533
 };
 
 const doMap = () => {
@@ -28,6 +30,14 @@ const doForEach = () => {
         person.retired = Math.random() < 0.5;
     });
     return mappedElderly;
+};
+
+const doReduce = () => {
+    const filteredElderly = doFilter();
+    const totalElderlyAges = filteredElderly.reduce((acc, curr) => {
+        return acc + curr.dob.age;
+    }, 0);
+    return totalElderlyAges;
 };
 
 start();
