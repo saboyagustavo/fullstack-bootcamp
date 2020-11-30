@@ -13,6 +13,7 @@ const start = () => {
     console.log('\nThere are any Elderly person, on the filtered list, living in TO? ', doSome()); //-> true
     doEvery();
     console.log('\nAre all the users in the filtered array from Brazil(BR) ', doEvery()); //-> true
+    doSort();
 };
 
 const doMap = () => {
@@ -69,5 +70,19 @@ const doEvery = () => {
     });
     return areBrazilian;
 };
+
+function doSort() {
+    const mappedAndFilteredUsers = people.results
+        .map((person) => {
+            return {
+                name: person.name.first,
+            };
+        })
+        .filter((person) => person.name.startsWith('G'))
+        .sort((a, b) => {
+            return a.name.localeCompare(b.name);
+        });
+    console.log(mappedAndFilteredUsers);
+}
 
 start();

@@ -12,4 +12,4 @@ _ES6 most commonly used array methods_
 - [x] **find** - retrieve first user from a specific state or city;
 - [x] **some** - obtain a truthy value from a search in each element;
 - [x] **every** - are all the users in the filtered array from Brazil(BR)?
-- [] **sort** - organize properties in an object alphabetically, by name and age.
+- [x] **sort** - organize properties in an object alphabetically, by name and age.
