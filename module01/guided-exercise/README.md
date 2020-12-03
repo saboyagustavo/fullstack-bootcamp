@@ -21,11 +21,11 @@ With the already provided CSS and HTML, build a JavaScript to list countries and
 
 #### Step by step
 
-- [ ] Create application state variables;
+- [x] Create application state variables;
 
-- [ ] Create eventListener with _'load'_ and _start_ function;
+- [x] Create eventListener with _'load'_ and _start_ function;
 
-- [ ] implement fetchCountries asynchronous function; 
+- [x] implement fetchCountries asynchronous function; 
 - [ ] fetch data from "https://restcountries.eu/rest/v2/all" and transform it to obtain id, name, population and flag and invoke _render_ function;
 - [ ] implement _render()_ containing these functions: _renderCountryList_, _renderFavorites_,  _renderSummary_ and _handleCountryButtons_;
 - [ ] implement _renderCountryList_ and _renderFavorites_ using template literals;
