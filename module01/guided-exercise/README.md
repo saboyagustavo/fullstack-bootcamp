@@ -1,7 +1,12 @@
 # Guided Exercise 1 - Countries
 
-_Challenge taught by [Rafael Gomide](https://github.com/rrgomide) at **[IGTI](https://www.igti.com.br/) FullStack  Developer Bootcamp**
-_Application built, using pure HTML, CSS and JS, which search countries from an API and display some statistics._
+Challenge taught by [Rafael Gomide](https://github.com/rrgomide) at **[IGTI](https://www.igti.com.br/) FullStack  Developer Bootcamp**
+
+## Result:
+
+Application built, using pure HTML, CSS and JS, which search countries from an API and display some statistics.
+
+![guided-challenge](https://user-images.githubusercontent.com/64825005/101083050-2c023300-358b-11eb-9f0a-e0d4986fe7ae.gif)
 
 ## SOW - Statement of work
 
@@ -34,4 +39,4 @@ With the already provided CSS and HTML, build a JavaScript to list countries and
 -   [x] implement _handleCountryButtons_ with _querySelectorAll_ and _forEach_, adding listeners in all _buttons_ throughout _button.id_.;
 -   [x] implement _addToFavorites(id)_;
 -   [x] implement _removeFromFavorites(id)_;
--   [ ] implement formatting number values.
+-   [x] implement formatting number values.
