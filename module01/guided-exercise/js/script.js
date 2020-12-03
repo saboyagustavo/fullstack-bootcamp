@@ -11,6 +11,8 @@ let countFav = 0;
 let totalPopulationList = 0;
 let totalPopulationFav = 0;
 
+let numberFormat = null;
+
 window.addEventListener('load', () => {
     tabCountries = document.querySelector('#tabCountries');
     tabFav = document.querySelector('#tabFavorites');
@@ -20,6 +22,7 @@ window.addEventListener('load', () => {
     totalPopulationList = document.querySelector('#totalPopulationList');
     totalPopulationFav = document.querySelector('#totalPopulationFavorites');
 
+    numberFormat = Intl.NumberFormat('en-US');
     fetchCountries();
 });
 
@@ -32,6 +35,7 @@ async function fetchCountries() {
             id: numericCode,
             name,
             population,
+            formattedPopulation: formatNumber(population),
             flag,
         };
     });
@@ -48,11 +52,11 @@ function render() {
 function renderCountryList() {
     let countriesHTML = '<div>';
     allCountries.forEach((country) => {
-        const { name, flag, id, population } = country;
+        const { name, flag, id, population, formattedPopulation } = country;
         const countryHTML = `
         <div class='country'>
             <div>
-                <a id="${id}" class="waves-effect waves-light btn">+</a>
+                <a id="${id}" class="waves-effect waves-light btn cyan">+</a>
             </div>
             <div>
                 <img src="${flag}" alt="${name}"/>
@@ -60,7 +64,7 @@ function renderCountryList() {
             <div>
                 <ul>
                     <li>${name}</li>
-                    <li><em>Population: ${population}</em></li>
+                    <li><em>Population: ${formattedPopulation}</em></li>
                 </ul>
             </div>
         </div>
@@ -75,7 +79,7 @@ function renderFavorites() {
     let favoritesHTML = '<div>';
 
     favCountries.forEach((country) => {
-        const { name, flag, id, population } = country;
+        const { name, flag, id, population, formattedPopulation } = country;
 
         const favCountryHTML = `
         <div class='country'>
@@ -88,7 +92,7 @@ function renderFavorites() {
             <div>
                 <ul>
                     <li>${name}</li>
-                    <li><em>Population: ${population}</em></li>
+                    <li><em>Population: ${formattedPopulation}</em></li>
                 </ul>
             </div>
         </div>
@@ -111,8 +115,8 @@ function renderSummary() {
         return acc + curr.population;
     }, 0);
 
-    totalPopulationList.textContent = totalPopulation;
-    totalPopulationFav.textContent = totalFavorites;
+    totalPopulationList.textContent = formatNumber(totalPopulation);
+    totalPopulationFav.textContent = formatNumber(totalFavorites);
 }
 
 function handleCountryButtons() {
@@ -148,4 +152,8 @@ function removeFromFavorites(id) {
 
     favCountries = favCountries.filter((country) => country.id !== id);
     render();
+}
+
+function formatNumber(number) {
+    return numberFormat.format(number);
 }

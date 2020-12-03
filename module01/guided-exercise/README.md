@@ -1,5 +1,6 @@
 # Guided Exercise 1 - Countries
 
+_Challenge taught by [Rafael Gomide](https://github.com/rrgomide) at **[IGTI](https://www.igti.com.br/) FullStack  Developer Bootcamp**
 _Application built, using pure HTML, CSS and JS, which search countries from an API and display some statistics._
 
 ## SOW - Statement of work
