@@ -46,10 +46,57 @@ function render() {
 }
 
 function renderCountryList() {
-    console.log('rendering... country list');
+    let countriesHTML = '<div>';
+    allCountries.forEach((country) => {
+        const { name, flag, id, population } = country;
+        const countryHTML = `
+        <div class='country'>
+            <div>
+                <a id="${id}" class="waves-effect waves-light btn">+</a>
+            </div>
+            <div>
+                <img src="${flag}" alt="${name}"/>
+            </div>
+            <div>
+                <ul>
+                    <li>${name}</li>
+                    <li><em>Population: ${population}</em></li>
+                </ul>
+            </div>
+        </div>
+        `;
+        countriesHTML += countryHTML;
+    });
+    countriesHTML += '</div>';
+    tabCountries.innerHTML = countriesHTML;
 }
+
 function renderFavorites() {
-    console.log('rendering... favorites');
+    let favoritesHTML = '<div>';
+
+    favCountries.forEach((country) => {
+        const { name, flag, id, population } = country;
+
+        const favCountryHTML = `
+        <div class='country'>
+            <div>
+                <a id="${id}" class="waves-effect waves-light btn orange darken-4">+</a>
+            </div>
+            <div>
+                <img src="${flag}" alt="${name}"/>
+            </div>
+            <div>
+                <ul>
+                    <li>${name}</li>
+                    <li><em>Population: ${population}</em></li>
+                </ul>
+            </div>
+        </div>
+        `;
+        favoritesHTML += favCountryHTML;
+    });
+    favoritesHTML += '</div>';
+    tabFav.innerHTML = favoritesHTML;
 }
 function renderSummary() {
     console.log('rendering... summary');
