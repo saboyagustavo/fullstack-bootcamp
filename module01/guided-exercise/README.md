@@ -29,7 +29,7 @@ With the already provided CSS and HTML, build a JavaScript to list countries and
 -   [x] fetch data from "https://restcountries.eu/rest/v2/all" and transform it, to obtain id, name, population and flag, then invoke _render_ function;
 -   [x] implement _render()_ containing these functions: _renderCountryList_, _renderFavorites_, _renderSummary_ and _handleCountryButtons_;
 -   [x] implement _renderCountryList_ and _renderFavorites_ using template literals;
--   [ ] implement renderSummary with reduce;
+-   [x] implement renderSummary with reduce;
 -   [ ] implement _handleCountryButtons_ with _querySelectorAll_ and _forEach_, adding listeners in all _buttons_ throughout _button.id_.;
 -   [ ] implement _addToFavorites(id)_;
 -   [ ] implement _removeFromFavorites(id)_;

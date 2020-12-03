@@ -99,8 +99,21 @@ function renderFavorites() {
     tabFav.innerHTML = favoritesHTML;
 }
 function renderSummary() {
-    console.log('rendering... summary');
+    countCountries.textContent = allCountries.length;
+    countFav.textContent = favCountries.length;
+
+    const totalPopulation = allCountries.reduce((acc, curr) => {
+        return acc + curr.population;
+    }, 0);
+
+    const totalFavorites = favCountries.reduce((acc, curr) => {
+        return acc + curr.population;
+    }, 0);
+
+    totalPopulationList.textContent = totalPopulation;
+    totalPopulationFav.textContent = totalFavorites;
 }
+
 function handleCountryButtons() {
     console.log('rendering... country buttons');
 }
