@@ -98,6 +98,7 @@ function renderFavorites() {
     favoritesHTML += '</div>';
     tabFav.innerHTML = favoritesHTML;
 }
+
 function renderSummary() {
     countCountries.textContent = allCountries.length;
     countFav.textContent = favCountries.length;
@@ -115,5 +116,36 @@ function renderSummary() {
 }
 
 function handleCountryButtons() {
-    console.log('rendering... country buttons');
+    const countryButtons = Array.from(tabCountries.querySelectorAll('.btn'));
+    const favButtons = Array.from(tabFav.querySelectorAll('.btn'));
+
+    countryButtons.forEach((button) => {
+        button.addEventListener('click', () => addToFavorites(button.id));
+    });
+    favButtons.forEach((button) => {
+        button.addEventListener('click', () => removeFromFavorites(button.id));
+    });
+}
+
+function addToFavorites(id) {
+    const countryToAdd = allCountries.find((country) => country.id === id);
+    favCountries = [...favCountries, countryToAdd];
+
+    favCountries.sort((a, b) => {
+        return a.name.localeCompare(b.name);
+    });
+
+    allCountries = allCountries.filter((country) => country.id !== id);
+    render();
+}
+function removeFromFavorites(id) {
+    const countryToRemove = favCountries.find((country) => country.id === id);
+    allCountries = [...allCountries, countryToRemove];
+
+    allCountries.sort((a, b) => {
+        return a.name.localeCompare(b.name);
+    });
+
+    favCountries = favCountries.filter((country) => country.id !== id);
+    render();
 }
