@@ -22,4 +22,38 @@ window.addEventListener('load', () => {
 
     fetchCountries();
 });
-async function fetchCountries() {}
+
+async function fetchCountries() {
+    const res = await fetch('https://restcountries.eu/rest/v2/all');
+    const json = await res.json();
+    allCountries = json.map((country) => {
+        const { numericCode, name, population, flag } = country;
+        return {
+            id: numericCode,
+            name,
+            population,
+            flag,
+        };
+    });
+    render();
+}
+
+function render() {
+    renderCountryList();
+    renderFavorites();
+    renderSummary();
+    handleCountryButtons();
+}
+
+function renderCountryList() {
+    console.log('rendering... country list');
+}
+function renderFavorites() {
+    console.log('rendering... favorites');
+}
+function renderSummary() {
+    console.log('rendering... summary');
+}
+function handleCountryButtons() {
+    console.log('rendering... country buttons');
+}
