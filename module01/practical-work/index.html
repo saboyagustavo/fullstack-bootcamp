@@ -7,10 +7,22 @@
         <title>Numbers In Full</title>
     </head>
     <body>
-        <h1 id="title"></h1>
-        <input type="range" id="numbers" min="0" max="999" /><br />
-        <input type="text" id="in-full" placeholder="from 0 to 999" disabled /><br />
-        <input type="text" id="figures" disabled />
+        <header>
+            <h1 id="title"></h1>
+        </header>
+        <main>
+            <p id="figures">0</p>
+            <input type="range" id="numbers" min="0" max="999" />
+            <p id="in-full">from 0 to 999</p>
+        </main>
+        <footer>
+            <p>Gustavo Saboya</p>
+            <hr />
+            <p><time datetime="2020-12-11">2020</time></p>
+            <span id="github">
+                <a href="https://github.com/saboyagustavo/fullstack-bootcamp/tree/master/module01/practical-work"></a
+            ></span>
+        </footer>
         <script defer src="./scripts/main.js"></script>
     </body>
 </html>
