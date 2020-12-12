@@ -46,30 +46,26 @@ function inFull(num) {
     let and = '';
     let hyphen = '';
 
-    // log -> unit (OK)
     if (numberStr.length == 1) {
         part1 = `${units[numberStr % 100]}`;
         part2 = '';
         part3 = '';
     }
 
-    // log 19 -> teen (OK)
-    // log 20 -> round dozen (OK)
-    // log 39 -> dozen+hyphen+unit (OK)
     if (numberStr.length == 2) {
         if (numberStr[0] == 1) {
             part3 = '';
             part2 = '';
             part1 = `${teens[numberStr % 100]}`;
         } else {
-            if (numberStr[1] == 0) {
-                hyphen = '';
-                part1 = '';
-            }
             part3 = '';
             part2 = `${dozens[numberStr[0] * 10]}`;
             hyphen = '-';
             part1 = `${units[numberStr[1 % 100]]}`;
+            if (numberStr[1] == 0) {
+                hyphen = '';
+                part1 = '';
+            }
         }
     }
 
