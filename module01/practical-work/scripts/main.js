@@ -1,6 +1,6 @@
-var rangeInput = null;
-var textInput = null;
-var figureInput = null;
+let rangeInput = null;
+let textInput = null;
+let figureInput = null;
 
 function start() {
     const title = document.querySelector('h1');
@@ -20,12 +20,14 @@ function addEvents() {
 }
 
 function handleInputChange(event) {
-    rangeInput.value = event.target.value;
-    changeNumber();
+    let rangeValue = event.target.value;
+    rangeInput.value = rangeValue;
+    figureInput.textContent = changeNumber(rangeValue);
+    textInput.textContent = inFull(rangeValue);
 }
 
 function changeNumber(num) {
-    num = rangeInput.value;
     console.log(num);
+    return num;
 }
 start();
