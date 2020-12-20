@@ -1,8 +1,10 @@
 const fs = require('fs').promises;
 
-function start() {
+async function start() {
     console.log('\n Program started.');
-    createFiles();
+    // createFiles();
+
+    console.log(`\n Checking how many cities there is in Bahia: ${await getCitiesAmount('BA')}`);
 
     console.log('\n End of the process.');
 }
@@ -21,5 +23,11 @@ async function createFiles() {
         const stateCities = cities.filter((city) => city.Estado === state.ID);
         await fs.writeFile(`./files/states/${state.Sigla}.json`, JSON.stringify(stateCities));
     }
+}
+
+async function getCitiesAmount(uf) {
+    const data = await fs.readFile(`./files/states/${uf}.json`);
+    const cities = JSON.parse(data);
+    return cities.length;
 }
 start();
