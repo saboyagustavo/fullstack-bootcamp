@@ -14,10 +14,10 @@ The file Estados.json is a list within all federative units (UF) of Brazil; each
 
 ### Activities
 
-1.  - [ ] download estados.json and cidades.json from the [this link](https://github.com/felipefdl/cidades-estados-brasil-json);
+1.  -   [x] download estados.json and cidades.json from [this link](https://github.com/felipefdl/cidades-estados-brasil-json);
 
-2.  - [ ] Create a function that writes an "UF.json" for each state.
-3.  - [ ] Create a function that pass the "UF" as argument and reads the corresponding UF.json, returning the amount of cities from that state.
+2.  -   [ ] Create a function that writes an "UF.json" for each state.
+3.  -   [ ] Create a function that pass the "UF" as argument and reads the corresponding UF.json, returning the amount of cities from that state.
 
 ## Rules
 

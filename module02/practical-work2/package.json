@@ -1,0 +1,11 @@
+{
+  "name": "practical-work2",
+  "version": "1.0.0",
+  "description": "_The student must create a Node.js project to implement methods which process JSON files._",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
