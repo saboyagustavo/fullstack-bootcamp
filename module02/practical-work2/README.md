@@ -18,6 +18,9 @@ The file Estados.json is a list within all federative units (UF) of Brazil; each
 
 2.  -   [x] Create a function that writes an "UF.json" for each state.
 3.  -   [x] Create a function that pass the "UF" as argument and reads the corresponding UF.json, returning the amount of cities from that state.
+4.  -   [x] Implement a method that prints an array containing the UF of five states with more cities, followed by their city amount in decrescent order. For example: [“UF-93”, “UF-82”, “UF-74”, “UF-72”, “UF-65”]
+5.  -   [x] Implement a method that prints an array containing the UF of five states with less cities, followed by their city amount in crescent order. For example: [“UF-93”, “UF-82”, “UF-74”, “UF-72”, “UF-65”]
+6.  -   [ ] Implement a method that prints an array containing the cities of longest name from every state, followed by their respective UF. Example: ["City's Name – UF”, “City's Name" – UF”, ...].
 
 ## Rules
 
