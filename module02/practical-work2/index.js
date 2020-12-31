@@ -4,7 +4,7 @@ let states = getStates();
 async function start() {
     console.log('\n Program started.');
     // createFiles();
-    // printMajorStates();
+    printMajorStates();
     printCitiesNamesLengthComparison(true);
     printCitiesNamesLengthComparison(false);
 }
@@ -32,8 +32,7 @@ async function getCities(uf) {
 }
 
 async function getCitiesAmount(uf) {
-    const data = await fs.readFile(`./files/states/${uf}.json`);
-    const cities = JSON.parse(data);
+    const cities = await getCities(uf);
     return cities.length;
 }
 
@@ -45,6 +44,7 @@ async function getStates() {
 async function printMajorStates() {
     states = await states;
     const list = [];
+
     for (state of states) {
         const amount = await getCitiesAmount(state.Sigla);
         list.push({ UF: state.Sigla, amount });
@@ -64,15 +64,24 @@ async function printMajorStates() {
         const result = [];
 
         doSort(more);
-        //console.log('\nHere is the sorted list: ', list);
 
-        list.slice(0, 5).forEach((state) => result.push(state.UF + '-' + state.amount));
+        const getTopFive = (list) => list.slice(0, 5);
+        getTopFive(list).forEach((state) => result.push(state.UF + '-' + state.amount));
+
+        function getCityCount() {
+            let cityCount = 0;
+            for (let i = 0; i < 5; i++) {
+                cityCount += getTopFive(list)[i].amount;
+            }
+            return cityCount;
+        }
+
         if (more) {
-            console.log('\nChecking out states with more cities in: ', result);
-            // [“UF-93”, “UF-82”, “UF-74”, “UF-72”, “UF-65”]
+            console.log('\nChecking out top five states with more cities in: ', result);
+            console.log('Total of cities: ', getCityCount());
         } else {
-            console.log('\nChecking out states with less cities in: ', result);
-            // [“UF-65”, “UF-72”, “UF-74”, “UF-82”, “UF-93”]
+            console.log('\nChecking out top five states with less cities in: ', result);
+            console.log('Total of cities: ', getCityCount());
         }
     };
 
@@ -108,7 +117,7 @@ async function printCitiesNamesLengthComparison(longest) {
                 else if (city.Nome.length < nameCity.Nome.length) nameCity = city;
                 else if (
                     city.Nome.length === nameCity.Nome.length &&
-                    city.Nome.toLowerCase() > nameCity.Nome.toLowerCase()
+                    city.Nome.toLowerCase() < nameCity.Nome.toLowerCase()
                 )
                     nameCity = city;
             });
@@ -125,7 +134,25 @@ async function printCitiesNamesLengthComparison(longest) {
         result.push(`${list[i].UF} - ${list[i].Name}`);
     }
 
-    //console.log('\nHere is the list:', list);
+    nameCity = null;
+
+    if (longest) {
+        list.forEach((city) => {
+            if (!nameCity) nameCity = city;
+            else if (city.Name.length > nameCity.Name.length) nameCity = city;
+            else if (city.Name.length === nameCity.Name.length && city.Name.toLowerCase() < nameCity.Name.toLowerCase())
+                nameCity = city;
+        });
+        console.log(`\n Here is the longest name among all cities: ${nameCity.Name} - ${nameCity.UF}`);
+    } else {
+        list.forEach((city) => {
+            if (!nameCity) nameCity = city;
+            else if (city.Name.length < nameCity.Name.length) nameCity = city;
+            else if (city.Name.length === nameCity.Name.length && city.Name.toLowerCase() < nameCity.Name.toLowerCase())
+                nameCity = city;
+        });
+        console.log(`\n Here is the shortest city name among all: ${nameCity.Name} - ${nameCity.UF}`);
+    }
 
     if (longest) {
         console.log('\nHere is the array of the cities of longest names:', result);
