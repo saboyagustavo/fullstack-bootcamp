@@ -21,7 +21,9 @@ The file Estados.json is a list within all federative units (UF) of Brazil; each
 4.  -   [x] Implement a method that prints an array containing the UF of five states with more cities, followed by their city amount in decrescent order. For example: [“UF-93”, “UF-82”, “UF-74”, “UF-72”, “UF-65”]
 5.  -   [x] Implement a method that prints an array containing the UF of five states with less cities, followed by their city amount in crescent order. For example: [“UF-93”, “UF-82”, “UF-74”, “UF-72”, “UF-65”]
 6.  -   [x] Implement a method that prints an array containing the cities of longest name from every state, followed by their respective UF. Example: ["City's Name – UF”, “City's Name" – UF”, ...].
-7.  -   [ ] Implement a method that prints an array containing the cities of shortest name from every state, followed by their respective UF. Example: ["City's Name – UF”, “City's Name" – UF”, ...].
+7.  -   [x] Implement a method that prints an array containing the cities of shortest name from every state, followed by their respective UF. Example: ["City's Name – UF”, “City's Name" – UF”, ...].
+8.  -   [ ] Implement a method that prints a string with the longest city name among all states, followed by its respective UF. Example: “Nome da Cidade - UF".
+9.  -   [ ] Implement a method that prints a string with the shortest city name among all states, followed by its respective UF. Example: “Nome da Cidade - UF".
 
 ## Rules
 

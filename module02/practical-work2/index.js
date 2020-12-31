@@ -5,7 +5,8 @@ async function start() {
     console.log('\n Program started.');
     // createFiles();
     // printMajorStates();
-    printLongerCitiesNames();
+    printCitiesNamesLengthComparison(true);
+    printCitiesNamesLengthComparison(false);
 }
 
 async function createFiles() {
@@ -79,32 +80,45 @@ async function printMajorStates() {
     getResults(false);
 }
 
-async function printLongerCitiesNames() {
+async function printCitiesNamesLengthComparison(longest) {
     states = await states;
 
-    let longestNameCity;
+    let nameCity;
     const list = [];
     const result = [];
 
-    async function getLongestNameCity(uf) {
+    async function getCitiesNames(uf) {
         cities = await getCities(uf);
-        longestNameCity = null;
+        nameCity = null;
 
-        cities.forEach((city) => {
-            if (!longestNameCity) longestNameCity = city;
-            else if (city.Nome.length > longestNameCity.Nome.length) longestNameCity = city;
-            else if (
-                city.Nome.length === longestNameCity.Nome.length &&
-                city.Nome.toLowerCase() < longestNameCity.Nome.toLowerCase()
-            )
-                longestNameCity = city;
-        });
-        return longestNameCity;
+        if (longest) {
+            cities.forEach((city) => {
+                if (!nameCity) nameCity = city;
+                else if (city.Nome.length > nameCity.Nome.length) nameCity = city;
+                else if (
+                    city.Nome.length === nameCity.Nome.length &&
+                    city.Nome.toLowerCase() < nameCity.Nome.toLowerCase()
+                )
+                    nameCity = city;
+            });
+            return nameCity;
+        } else {
+            cities.forEach((city) => {
+                if (!nameCity) nameCity = city;
+                else if (city.Nome.length < nameCity.Nome.length) nameCity = city;
+                else if (
+                    city.Nome.length === nameCity.Nome.length &&
+                    city.Nome.toLowerCase() > nameCity.Nome.toLowerCase()
+                )
+                    nameCity = city;
+            });
+            return nameCity;
+        }
     }
 
     for (let state of states) {
-        longestNameCity = await getLongestNameCity(state.Sigla);
-        list.push({ UF: state.Sigla, Name: longestNameCity.Nome });
+        cityObj = await getCitiesNames(state.Sigla);
+        list.push({ UF: state.Sigla, Name: cityObj.Nome });
     }
 
     for (let i = 0; i < list.length; i++) {
@@ -112,7 +126,12 @@ async function printLongerCitiesNames() {
     }
 
     //console.log('\nHere is the list:', list);
-    console.log('\nHere is the array of the cities of longest names:', result);
+
+    if (longest) {
+        console.log('\nHere is the array of the cities of longest names:', result);
+    } else {
+        console.log('\nHere is the array of the cities of shortest names:', result);
+    }
 }
 
 start();
