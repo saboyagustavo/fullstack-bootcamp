@@ -30,3 +30,7 @@ The file Estados.json is a list within all federative units (UF) of Brazil; each
 -   Do not amend the name of cities in the original object.
 -   In case of a tie between cities name's length the use of alphabetical order should prevail.
 -   When the project runs, it should execute its methods in sequence and end the process.
+
+#### Results
+
+![practical-work2](https://user-images.githubusercontent.com/64825005/103424024-dbc9c100-4b88-11eb-822b-c2913a6590e7.gif)
