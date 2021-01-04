@@ -14,10 +14,15 @@
     <body>
         <header></header>
         <h1 id="title">User Search</h1>
-        <input type="text" name="searchBar" id="searchBar" />
+        <form>
+            <label for="searchBar">
+                <input type="text" name="searchBar" id="searchBar" placeholder="type a name here" />
+            </label>
+        </form>
         <main>
-            <section></section>
-            <section></section>
+            <h2 id="results"></h2>
+            <section id="spotlightedResults" class="left-panel"></section>
+            <section id="mainResults" class="right-panel"></section>
             <aside>
                 <section></section>
             </aside>
