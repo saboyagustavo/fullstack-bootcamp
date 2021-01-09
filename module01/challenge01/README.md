@@ -19,8 +19,8 @@ Create an application that filter users and display statistics by a defined filt
 
 1.  -   [x] At the initial load of the application, obtain the data from [this API](https://randomuser.me/api/?Seed=javascript&results=100&nat=BR&noinfo).
 2.  -   [x] Load user data into an array.
-3.  -   [] Allow users filtering through an input.
-4.  -   [] The user can filter data when typing at least one character on the input.
+3.  -   [x] Allow users filtering through an input.
+4.  -   [x] The user can filter data when typing at least one character on the input.
 5.  -   [] The user will be able to filter the data either by typing "Enter" or clicking the corresponding button.
 6.  -   [] The layout of the page must have two panels.
 7.  -   [] In the left panel, list the filtered users.
