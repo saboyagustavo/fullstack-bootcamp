@@ -1,7 +1,11 @@
 const path = 'https://randomuser.me/api/?seed=javascript&results=100&nat=BR&noinfo';
-const displayedUsers = [];
-let input = null;
-let inputName = null;
+let displayedUser = null,
+    userList = null,
+    input = null,
+    form = null,
+    userPanel = null,
+    statistics = null,
+    searchResults = null;
 
 async function fetchData(path) {
     const data = await fetch(path);
@@ -35,6 +39,12 @@ async function init() {
 
 function mapElements() {
     input = document.querySelector('#searchBar');
+    form = document.querySelector('form');
+    userPanel = document.getElementById('userPanel');
+    userList = document.getElementById('mainResults');
+    displayedUser = document.getElementById('highlightedResult');
+    statistics = document.getElementById('statistics');
+    seachResults = document.getElementById('results');
 }
 
 function preventFormSubmit() {
@@ -42,14 +52,13 @@ function preventFormSubmit() {
         event.preventDefault();
     }
 
-    let form = document.querySelector('form');
     form.addEventListener('submit', handleFormSubmit);
 }
 
-async function searchName(name) {
+function searchName(name) {
     console.log('buscando: ', name);
     const filteredText = name.toLowerCase();
-    const filteredUsers = users.filter((user) => {
+    const filteredUsers = users.filter(user => {
         return user.nameLowerCase.includes(filteredText);
     });
     renderUsers(filteredUsers);
@@ -57,24 +66,24 @@ async function searchName(name) {
 }
 
 function activateInput() {
-    function handleTyping(event) {
-        const currentKey = event.key;
-        const searchedName = event.target.value;
-        const hasText = !!event.target.value && event.target.value.trim() !== '';
-
-        if (!hasText) {
-            clearInput();
-            return;
-        }
-
-        if (currentKey === 'Enter' && searchedName.trim() !== '') {
-            searchName(searchedName);
-            clearInput();
-        }
-    }
-
     input.focus();
     input.addEventListener('keyup', handleTyping);
+}
+
+function handleTyping(event) {
+    const currentKey = event.key;
+    const searchedName = event.target.value;
+    const hasText = !!event.target.value && event.target.value.trim() !== '';
+
+    if (!hasText) {
+        clearInput();
+        return;
+    }
+
+    if (currentKey === 'Enter' && searchedName.trim() !== '') {
+        searchName(searchedName);
+        clearInput();
+    }
 }
 
 function clearInput() {
