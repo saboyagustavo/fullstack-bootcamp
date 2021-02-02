@@ -92,14 +92,11 @@ function clearInput() {
 }
 
 function clearResults() {
-    userPanel.innerHTML = '';
     displayedUser.innerHTML = '';
     userList.innerHTML = '';
 }
 
 function renderUsers(users) {
-    clearResults();
-
     users.length > 0
         ? (results.textContent = `Showing ${users.length} of ${users.length} results`)
         : (results.textContent = 'Sorry, it did not match any results');
@@ -108,11 +105,24 @@ function renderUsers(users) {
         return a.nameLowerCase.localeCompare(b.nameLowerCase);
     });
 
-    const setUserList = () => {};
+    const setUserList = users => {
+        users.forEach(({ id, name, location, age, picture }) => {
+            const li = document.createElement('li');
+            const userData = `
+                <p>${name}</p>
+                <p>${location}</p>
+                <p>${age}</p>
+                `;
+            const userImage = `<img class="avatar" src="${picture}" alt="${name}"`;
+            li.innerHTML = `${userImage} ${userData}`;
+            li.id = id;
+            userList.appendChild(li);
+        });
+    };
 
     const setHighlitedUser = () => {};
 
-    setUserList();
+    setUserList(users);
     setHighlitedUser();
     console.log('Here is the filtered users: ', users);
 }
