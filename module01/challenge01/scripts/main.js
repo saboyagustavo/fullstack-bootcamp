@@ -91,7 +91,29 @@ function clearInput() {
     input.focus();
 }
 
+function clearResults() {
+    userPanel.innerHTML = '';
+    displayedUser.innerHTML = '';
+    userList.innerHTML = '';
+}
+
 function renderUsers(users) {
+    clearResults();
+
+    users.length > 0
+        ? (results.textContent = `Showing ${users.length} of ${users.length} results`)
+        : (results.textContent = 'Sorry, it did not match any results');
+
+    users.sort((a, b) => {
+        return a.nameLowerCase.localeCompare(b.nameLowerCase);
+    });
+
+    const setUserList = () => {};
+
+    const setHighlitedUser = () => {};
+
+    setUserList();
+    setHighlitedUser();
     console.log('Here is the filtered users: ', users);
 }
 
