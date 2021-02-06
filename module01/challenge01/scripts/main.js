@@ -44,7 +44,7 @@ function mapElements() {
     userList = document.getElementById('mainResults');
     displayedUser = document.getElementById('highlightedResult');
     statistics = document.getElementById('statistics');
-    seachResults = document.getElementById('results');
+    searchResults = document.getElementById('results');
 }
 
 function preventFormSubmit() {
@@ -97,9 +97,10 @@ function clearResults() {
 }
 
 function renderUsers(users) {
+    clearResults();
     users.length > 0
-        ? (results.textContent = `Showing ${users.length} of ${users.length} results`)
-        : (results.textContent = 'Sorry, it did not match any results');
+        ? (searchResults.textContent = `Showing ${users.length} of ${users.length} results`)
+        : (searchResults.textContent = 'Sorry, it did not match any results');
 
     users.sort((a, b) => {
         return a.nameLowerCase.localeCompare(b.nameLowerCase);

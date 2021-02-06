@@ -1,3 +1,74 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
 body {
     font-family: 'Open Sans', sans-serif;
+    color: white;
+    background: #050a30;
+    width: min(90vw, 800px);
+    margin: auto;
 }
+
+/* --- HEADER --- */
+#title {
+    margin: 3rem 0 0.75rem 0;
+    font-size: 2.5rem;
+    font-weight: normal;
+    text-align: center;
+}
+/* .container {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    text-align: center;
+    background: lime;
+} */
+header label {
+    display: block;
+    margin: 0 auto;
+    width: min(75%, 500px);
+    height: 4rem;
+    margin-bottom: 1rem;
+    padding: 0.25rem;
+    border: 3px solid white;
+    border-radius: 1.25rem;
+}
+
+#searchBar {
+    width: 100%;
+    padding: 0.5rem;
+    display: inline-block;
+    margin-top: 0.25rem;
+    background: #050a30;
+    border: 1.25px solid white;
+    border-radius: 1rem;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    color: white;
+    visibility: hidden;
+}
+
+#searchBar:focus {
+    outline: none;
+    visibility: visible;
+    opacity: 1;
+}
+#searchBar:hover {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* --- MAIN --- */
+h2 {
+    text-align: center;
+    font-weight: lighter;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    letter-spacing: 00.1rem;
+}
+
+/* --- USER RESULTS CARD --- */
+/* --- USER RESULTS LIST --- */
