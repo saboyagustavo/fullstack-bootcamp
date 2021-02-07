@@ -19,13 +19,7 @@ body {
     font-weight: normal;
     text-align: center;
 }
-/* .container {
-    display: flex;
-    margin: 0 auto;
-    justify-content: center;
-    text-align: center;
-    background: lime;
-} */
+
 header label {
     display: block;
     margin: 0 auto;
@@ -41,7 +35,7 @@ header label {
     width: 100%;
     padding: 0.5rem;
     display: inline-block;
-    margin-top: 0.25rem;
+    margin-top: 0.3rem;
     background: #050a30;
     border: 1.25px solid white;
     border-radius: 1rem;
@@ -69,6 +63,20 @@ h2 {
     font-size: 1.5rem;
     letter-spacing: 00.1rem;
 }
-
+/* --- USER PANEL --- */
+#userPanel {
+    padding: 2rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+}
 /* --- USER RESULTS CARD --- */
+
 /* --- USER RESULTS LIST --- */
+.avatar {
+    width: 50px;
+    border-radius: 50%;
+}
+.userList div {
+    display: flex;
+}

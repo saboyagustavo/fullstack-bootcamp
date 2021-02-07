@@ -14,12 +14,14 @@ async function fetchData(path) {
 }
 
 async function fetchUsers() {
-    const users = (await fetchData(path)).results.map(({ login, name, dob, gender, picture, location }) => {
+    const users = (await fetchData(path)).results.map(({ login, email, name, dob, gender, picture, location }) => {
         const fullName = `${name.first} ${name.last}`;
         return {
             id: login.uuid,
             name: fullName,
             nameLowerCase: fullName.toLowerCase(),
+            username: login.username,
+            email: email,
             age: dob.age,
             gender: gender,
             location: location.state,
@@ -106,25 +108,62 @@ function renderUsers(users) {
         return a.nameLowerCase.localeCompare(b.nameLowerCase);
     });
 
+    const setHighlitedUser = users => {
+        const user = [users[0]];
+        user.map(({ id, email, username, name, location, age, picture }) => {
+            const figure = document.createElement('figure');
+            const caption = document.createElement('figcaption');
+            const description = document.createElement('li');
+            const list = document.createElement('ul');
+
+            const userImage = `
+                            <img class="profile-pic" src="${picture}" alt="${name}"/>
+                `;
+
+            const userTitle = `
+                <p><strong>${name}</strong></p>
+                <p>${location}</p>
+                `;
+
+            const userDescription = `
+                <p>${age}</p>
+                <p>${email}</p>
+                    <p>${username}</p>
+                `;
+
+            description.innerHTML = `${userDescription}`;
+            list.appendChild(description);
+            caption.innerHTML = `${userTitle}`;
+            caption.appendChild(list);
+            figure.innerHTML = `${userImage}`;
+            figure.appendChild(caption);
+            displayedUser.appendChild(figure);
+        });
+    };
+
+    setHighlitedUser(users);
+    users.shift();
+
     const setUserList = users => {
         users.forEach(({ id, name, location, age, picture }) => {
             const li = document.createElement('li');
             const userData = `
+                <div>
                 <p>${name}</p>
                 <p>${location}</p>
                 <p>${age}</p>
+                </div>
                 `;
             const userImage = `<img class="avatar" src="${picture}" alt="${name}"`;
             li.innerHTML = `${userImage} ${userData}`;
             li.id = id;
             userList.appendChild(li);
+            userList.classList.add('userList');
         });
     };
 
-    const setHighlitedUser = () => {};
-
     setUserList(users);
-    setHighlitedUser();
+
     console.log('Here is the filtered users: ', users);
 }
 
