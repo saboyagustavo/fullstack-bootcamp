@@ -126,18 +126,18 @@ function renderUsers(users) {
                 `;
 
             const userDescription = `
-                <p>${age}</p>
+                <p>${age} years</p>
                 <p>${email}</p>
-                    <p>${username}</p>
+                <p>${username}</p>
                 `;
 
             description.innerHTML = `${userDescription}`;
             list.appendChild(description);
             caption.innerHTML = `${userTitle}`;
-            caption.appendChild(list);
             figure.innerHTML = `${userImage}`;
             figure.appendChild(caption);
             displayedUser.appendChild(figure);
+            displayedUser.appendChild(list);
         });
     };
 
