@@ -147,15 +147,23 @@ function renderUsers(users) {
     const setUserList = users => {
         users.forEach(({ id, name, location, age, picture }) => {
             const li = document.createElement('li');
+            const div = document.createElement('div');
+            const figure = document.createElement('figure');
+            const img = document.createElement('img');
+
             const userData = `
-                <div>
-                <p>${name}</p>
-                <p>${location}</p>
-                <p>${age}</p>
-                </div>
+                    <p>${name}</p>
+                    <p>${location}</p>
+                    <p>${age}</p>
                 `;
-            const userImage = `<img class="avatar" src="${picture}" alt="${name}"`;
-            li.innerHTML = `${userImage} ${userData}`;
+
+            img.setAttribute('class', 'avatar');
+            img.setAttribute('src', `${picture}`);
+            img.setAttribute('alt', `${name}`);
+            div.innerHTML = `${userData}`;
+            figure.appendChild(img);
+            li.appendChild(figure);
+            li.appendChild(div);
             li.id = id;
             userList.appendChild(li);
             userList.classList.add('userList');

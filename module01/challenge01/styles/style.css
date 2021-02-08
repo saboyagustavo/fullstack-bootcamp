@@ -1,3 +1,14 @@
+:root {
+    --background: #190080;
+    --sidebar: #341f89;
+    --hover: #303fad;
+    --lilac: #5769f4;
+    --darkGray: #191919;
+    --font: #f4f6fc;
+    --button: #9e427a;
+    --chart: #97edaa;
+    --footer: #233dff;
+}
 * {
     padding: 0;
     margin: 0;
@@ -6,8 +17,8 @@
 }
 body {
     font-family: 'Open Sans', sans-serif;
-    color: white;
-    background: #050a30;
+    color: var(--font);
+    background: var(--background);
     width: min(90vw, 800px);
     margin: auto;
 }
@@ -15,9 +26,10 @@ body {
 /* --- HEADER --- */
 #title {
     margin: 3rem 0 0.75rem 0;
-    font-size: 2.5rem;
+    font-size: 2.75rem;
     font-weight: normal;
     text-align: center;
+    color: white;
 }
 
 header label {
@@ -27,7 +39,7 @@ header label {
     height: 4rem;
     margin-bottom: 1rem;
     padding: 0.25rem;
-    border: 3px solid white;
+    border: 3px solid var(--font);
     border-radius: 1.25rem;
 }
 
@@ -36,7 +48,7 @@ header label {
     padding: 0.5rem;
     display: inline-block;
     margin-top: 0.3rem;
-    background: #050a30;
+    background: var(--background);
     border: 1.25px solid white;
     border-radius: 1rem;
     font-family: 'Open Sans', sans-serif;
@@ -58,7 +70,7 @@ header label {
 /* --- MAIN --- */
 h2 {
     text-align: center;
-    font-weight: lighter;
+    font-weight: normal;
     text-transform: uppercase;
     font-size: 1.5rem;
     letter-spacing: 00.1rem;
@@ -74,9 +86,23 @@ h2 {
 
 /* --- USER RESULTS LIST --- */
 .avatar {
-    width: 50px;
+    margin: 0.35rem 0 0 0.35rem;
+    width: 75px;
     border-radius: 50%;
 }
-.userList div {
+
+.userList li {
     display: flex;
+    align-items: center;
+    padding-right: 0.75rem;
+    margin-bottom: 0.75rem;
+    border-radius: 0.25rem;
+}
+.userList li:hover {
+    cursor: pointer;
+    background: var(--hover);
+    box-shadow: 0 3px 15px rgba(100, 100, 100, 0.5);
+}
+.userList div {
+    margin-left: 0.75rem;
 }
