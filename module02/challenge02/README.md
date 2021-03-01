@@ -26,7 +26,7 @@ The _nextId_ property must always store the id that will be used in next, when c
 
 The student must develop the following endpoints described below:
 
-1.  -   [ ] **An endpoint to create a grade.**
+1.  -   [x] **An endpoint to create a grade.**
 
     > -   This endpoint must receive as parameters the student, subject, type and value fields as described above.
     >
