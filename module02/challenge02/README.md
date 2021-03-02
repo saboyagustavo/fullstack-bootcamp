@@ -39,14 +39,14 @@ The student must develop the following endpoints described below:
     > -   Within the _grades.json_ file that was provided for use in the challenge, the _nextId_ field already has a defined value.
     > -   After insertion, it is necessary that _nextId_ be incremented and saved in the file itself, so that it will be properly available for the next insertion.
 
-2.  -   [ ] **An endpoint to update a grade.**
+2.  -   [x] **An endpoint to update a grade.**
 
     > -   This endpoint must receive as parameters the id of the grade to be changed, the student name, subject, type and value fields.
     > -   This endpoint must validate if the informed grade exists. If it does not, it must throw an error. If it does, the endpoint must update the information received by parameters in the registry, and update it with the new data changed in the _grades.json_ file.
 
-3.  -   [ ] **An endpoint to delete a grade.**
+3.  -   [x] **An endpoint to delete a grade.**
 
-    > -   This endpoint must receive the grade id as parameters and delete it from the _grades.json_ file.
+    > -   This endpoint must receive the grade id as parameter and delete it from the _grades.json_ file.
 
 4.  -   [ ] **An endpoint for query a specific grade.**
 
