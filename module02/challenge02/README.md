@@ -8,7 +8,7 @@ Exercise the concepts taught on the back-end module, creating an API and its end
 
 ## SOW - Statement of Work
 
-Build an API named "grades-control-api" that controls students grades in subjects from a course.
+-   [x] Build an API named "grades-control-api" that controls students grades in subjects from a course.
 
 The student must develop endpoints for creating, updating, deleting and consulting grades. The grades must be saved in a JSON file, called “_grades.json_”. This file is previously provided and its endpoints must perform considering the already existing records.
 All the following fields are required to a grade record:
