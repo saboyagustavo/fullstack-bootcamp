@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { CreateGrade } from './controllers/CreateGradeController.js';
 import { DeleteGrade } from './controllers/DeleteGradeController.js';
+import { ReadGrade } from './controllers/ReadGradeController.js';
 import { UpdateGrade } from './controllers/UpdateGradeController.js';
 
 const router = Router();
@@ -14,4 +15,6 @@ router.put('/', updateGrade.execute);
 const deleteGrade = new DeleteGrade();
 router.delete('/:id', deleteGrade.execute);
 
+const readGrade = new ReadGrade();
+router.get('/:id', readGrade.execute);
 export { router };

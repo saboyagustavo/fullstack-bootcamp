@@ -48,9 +48,9 @@ The student must develop the following endpoints described below:
 
     > -   This endpoint must receive the grade id as parameter and delete it from the _grades.json_ file.
 
-4.  -   [ ] **An endpoint for query a specific grade.**
+4.  -   [x] **An endpoint for query a specific grade.**
 
-    > -   This endpoint must receive the grade id as parameters and return its data.
+    > -   This endpoint must receive a grade id as parameter and return its data.
 
 5.  -   [ ] **An endpoint for query the student's overall grade in a subject.**
 
