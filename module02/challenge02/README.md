@@ -62,6 +62,6 @@ The student must develop the following endpoints described below:
     > -   The endpoint must receive as parameters a subject, a type, and return the average.
     > -   The average is calculated by adding the value of all records, that have the subject and type informed, and dividing by the total number of records that have the same subject and type.
 
-7.  -   [ ] **An endpoint to return the top three grades according to the given subject and type.**
+7.  -   [x] **An endpoint to return the top three grades according to the given subject and type.**
 
-    > -   The endpoint must receive as parameters a subject and a type, returning an array containing (in ascending order) the three highest values recorded of that subject and type.
+    > -   The endpoint must receive, in the request body, a subject and a type, and return an array containing (in ascending order) the three highest values recorded of that subject and type.
