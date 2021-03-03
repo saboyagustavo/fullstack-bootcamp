@@ -54,10 +54,10 @@ The student must develop the following endpoints described below:
 
 5.  -   [x] **An endpoint for query the student's total grade in a subject.**
 
-    > -   The endpoint must receive as parameters the student and the subject, and do the sum of all its corresponding activities grades.
+    > -   The endpoint must receive, in the request body, student and the subject, and do the sum of all its corresponding activities grades.
     > -   The endpoint must return the sum of the value property of the records found.
 
-6.  -   [ ] **An endpoint to consult the average of the grades from a given subject and type.**
+6.  -   [x] **An endpoint to consult the average of the grades from a given subject and type.**
 
     > -   The endpoint must receive as parameters a subject, a type, and return the average.
     > -   The average is calculated by adding the value of all records, that have the subject and type informed, and dividing by the total number of records that have the same subject and type.

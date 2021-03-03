@@ -1,19 +1,20 @@
 import { promises } from 'fs';
-class TotalGrade {
+
+class AverageGrade {
     async execute(request, response) {
         try {
             const json = JSON.parse(await promises.readFile(global.fileName, 'utf8'));
 
-            const { student, subject } = request.body;
+            const grades = json.grades.filter(
+                grade => grade.subject === request.params.subject && grade.type === request.params.type
+            );
 
-            const grades = json.grades.filter(grade => grade.student === student && grade.subject === subject);
-
-            if (grades != 0) {
-                const totalGrade = grades.reduce((accumulator, current) => {
+            if (Object.keys(grades) != 0) {
+                const sum = grades.reduce((accumulator, current) => {
                     return accumulator + current.value;
                 }, 0);
 
-                response.send({ student, subject, totalGrade });
+                response.send({ average: sum / grades.length });
             } else {
                 response.status(404).send({ error: 'No data has been found' });
             }
@@ -22,5 +23,4 @@ class TotalGrade {
         }
     }
 }
-
-export { TotalGrade };
+export { AverageGrade };

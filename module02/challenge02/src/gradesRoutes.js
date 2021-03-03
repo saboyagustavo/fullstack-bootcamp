@@ -1,4 +1,5 @@
 import { Router } from 'express';
+import { AverageGrade } from './controllers/AverageGradeController.js';
 import { CreateGrade } from './controllers/CreateGradeController.js';
 import { DeleteGrade } from './controllers/DeleteGradeController.js';
 import { ReadGrade } from './controllers/ReadGradeController.js';
@@ -22,4 +23,6 @@ router.get('/:id', readGrade.execute);
 const totalGrade = new TotalGrade();
 router.post('/totalGrade', totalGrade.execute);
 
+const averageGrade = new AverageGrade();
+router.get('/average/:subject/:type', averageGrade.execute);
 export { router };
