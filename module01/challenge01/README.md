@@ -21,10 +21,10 @@ Create an application that filter users and display statistics by a defined filt
 2.  -   [x] Load user data into an array.
 3.  -   [x] Allow users filtering through an input.
 4.  -   [x] The user can filter data when typing at least one character on the input.
-5.  -   [] The user will be able to filter the data either by typing "Enter" or clicking the corresponding button.
-6.  -   [] The layout of the page must have two panels.
-7.  -   [] In the left panel, list the filtered users.
-8.  -   [] In the right panel, calculate and show some statistics about these users.
+5.  -   [x] The user will be able to filter the data either by typing "Enter" or clicking the corresponding button.
+6.  -   [x] The layout of the page must have two panels.
+7.  -   [x] In the left panel, list the filtered users.
+8.  -   [x] In the right panel, calculate and show some statistics about these users.
 
 ## Rules and Tips
 
@@ -33,5 +33,3 @@ Create an application that filter users and display statistics by a defined filt
 -   Filter the data from any position in the name, e.g., the name "Brenda" (if it exists in the API) must be returned if the filter is "enda".
 -   To filter, consider all text in lowercase. Thus, the "E" filter will bring both "Elena" and "Helena", if these usernames exists in the API.
 -   Accents and special characters must be considered. Do not “clean” the text. Therefore, the text "Andre" cannot filter out the name "André".
-
-#### Results

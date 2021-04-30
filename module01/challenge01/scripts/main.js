@@ -64,7 +64,7 @@ function searchName(name) {
         return user.nameLowerCase.includes(filteredText);
     });
     renderUsers(filteredUsers);
-    renderStatistics(filteredUsers);
+    renderGenderStatistics(getGenderStatistics(filteredUsers));
 }
 
 function activateInput() {
@@ -96,6 +96,7 @@ function clearInput() {
 function clearResults() {
     displayedUser.innerHTML = '';
     userList.innerHTML = '';
+    statistics.innerHTML = '';
 }
 
 function renderUsers(users) {
@@ -142,7 +143,9 @@ function renderUsers(users) {
     };
 
     setHighlitedUser(users);
-    users.shift();
+    const modifiedUsers = [];
+    Object.assign(modifiedUsers, users);
+    modifiedUsers.shift();
 
     const setUserList = users => {
         users.forEach(({ id, name, location, age, picture }) => {
@@ -170,13 +173,36 @@ function renderUsers(users) {
         });
     };
 
-    setUserList(users);
+    setUserList(modifiedUsers);
 
     console.log('Here is the filtered users: ', users);
 }
 
-function renderStatistics(users) {
-    console.log('Here is the statistics: ', users);
+function getGenderStatistics(users) {
+    const countMales = users.filter(({ gender }) => gender === 'male').length;
+    const countFemales = users.filter(({ gender }) => gender === 'female').length;
+
+    return [
+        { name: 'Male', points: [{ x: 'Male', y: countMales }] },
+        { name: 'Female', points: [{ x: 'Female', y: countFemales }] },
+    ];
+}
+
+function renderGenderStatistics(series) {
+    JSC.Chart('statistics', {
+        type: 'horizontal column',
+        series: series,
+        //...
+        //Color Name
+        title_label_color: 'red',
+        //Hex color values
+        yAxis_label_color: '#FF0000',
+        //rgb(red,green,blue) to specify RGB values individually.
+        yAxis_defaultTick_label_color: 'rgb(20,20,20)',
+        //rgba(red,green,blue,alpha) to specify RGB values individually and alpha from 0 (transparent) to 1 (opaque).
+        legend_defaultEntry_style_color: 'rgba(20,20,20,.2)',
+        //...
+    });
 }
 
 init();

@@ -1,7 +1,7 @@
 # Fullstack Bootcamp - IGTI
 
-_Online course offered by [Instituto de Gest„o e Tecnologia da InformaÁ„o (IGTI)](https://www.igti.com.br/)  _
-_focused on professionally enable to act as a Full Stack developer._
+Online course offered by [Instituto de Gest√£o e Tecnologia da Informa–∑–≥o (IGTI)](https://www.igti.com.br/)
+focused on professionally enable to act as a Full Stack developer.
 
 Practical and intensive training in techniques for building  applications passing through all its logical layers - backend, frontend, NoSQL data persistence, version control and cloud implementation.
 
