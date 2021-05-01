@@ -20,8 +20,8 @@ function mapEvents() {
 
 const handleButtonClick = {
     getTimeStamp() {
-        const now = new Date();
-        clickArray.push(now.toISOString());
+        const now = new Date;
+        clickArray.push(Util.getNewTimestamp(now));
 
         handleButtonClick.render();
     },
@@ -35,5 +35,6 @@ const handleButtonClick = {
         });
 
         list.innerHTML = listItems;
+        document.title = clickArray.length;
     },
 }
