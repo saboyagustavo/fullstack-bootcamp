@@ -21,20 +21,18 @@ function mapEvents() {
 const handleButtonClick = {
     getTimeStamp() {
         const now = new Date;
-        clickArray.push(Util.getNewTimestamp(now));
+        const item = Util.getNewTimestamp(now);
+        clickArray.push(item);
 
-        handleButtonClick.render();
+        handleButtonClick.render(item);
     },
 
-    render() {
-        list.innerHTML = '';
-        let listItems = '';
+    render(item) {
+        let listItems = document.createElement('li');
+        listItems.textContent = item;
+        list.appendChild(listItems);
 
-        clickArray.map(item => {
-            listItems += `<li>${item}</li>`;
-        });
-
-        list.innerHTML = listItems;
+        console.log(list);
         document.title = clickArray.length;
     },
 }
