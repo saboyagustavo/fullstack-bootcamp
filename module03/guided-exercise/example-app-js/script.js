@@ -28,11 +28,12 @@ const handleButtonClick = {
 
     render() {
         list.innerHTML = '';
+        let listItems = '';
 
         clickArray.map(item => {
-            listItems = document.createElement('li');
-            listItems.innerText = `${item}`;
-            list.appendChild(listItems);
+            listItems += `<li>${item}</li>`;
         });
+
+        list.innerHTML = listItems;
     },
 }
