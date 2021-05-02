@@ -5,7 +5,7 @@ export const Container = styled.main`
     margin: 0 auto;
     margin-top: -10rem;
     padding: 2rem;
-    height: 75vh;
+    min-height: 75vh;
     border-radius: 0.25rem;
     background-color: var(--lighter);
     
@@ -41,18 +41,34 @@ export const Container = styled.main`
 `;
 
 export const Content = styled.ul`
-    max-width: 80%;
+    max-width: 100%;
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 1rem;
+    
+    @media(min-width: 769px) { 
+        grid-template-columns: repeat(6, 1fr);
+        gap: 1rem;
+    }
+    
+    @media(max-width: 768px) { 
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.75rem;
+    }
+
+    @media(max-width: 667px) { 
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.55rem;
+    }
+
+    @media(max-width: 414px) { 
+        grid-template-columns: 1fr;
+        gap: 0.55rem;
+    }
+        
 
     li {
+        text-align: center;
         font-family: monospace;
-        display: flex;
-        align-items: center;
-        justify-content: center;
         background: #fdfdcd;
-        height: 1rem;
         padding: 1rem;
         border-radius: 0.25rem;
     }

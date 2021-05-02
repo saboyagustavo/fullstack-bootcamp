@@ -26,6 +26,8 @@ html {
 }
 
 body {
+    min-height: 100%;
+    padding-bottom: 2rem;
     background-color: var(--background);
     -webkit-font-smoothing: antialiased;
 }
