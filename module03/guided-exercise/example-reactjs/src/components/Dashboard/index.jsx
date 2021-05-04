@@ -1,37 +1,30 @@
-import { Component } from "react";
+import { useEffect, useState } from "react";
 import { Container, Content } from "./styles";
 import getNewTimestamp from "../../utils/util"
 
-export class Dashboard extends Component {
-    constructor() {
-        super();
+export function Dashboard() {
+    const [clickArray, setClickArray] = useState([]);
 
-        this.state = {
-            clickArray: []
-        }
-    }
+    useEffect(() => {
+        document.title = clickArray.length;
+    });
 
-    handleClick = () => {
-        const updatedArray = Object.assign([], this.state.clickArray);
+
+    const handleClick = () => {
+        const updatedArray = Object.assign([], clickArray);
         updatedArray.push(getNewTimestamp());
         console.log(updatedArray);
-        this.setState({ clickArray: updatedArray });
-        console.log(this.state);
+        setClickArray(updatedArray);
+        console.log(clickArray);
     }
 
-    componentDidUpdate() {
-        document.title = this.state.clickArray.length;
-    }
-
-    render() {
-        return (
-            <Container>
-                <button onClick={this.handleClick}>time_stamp</button>
-                <hr />
-                <Content>
-                    {this.state.clickArray.map(item => <li key={Math.random()}>{item}</li>)}
-                </Content>
-            </Container >
-        )
-    }
+    return (
+        <Container>
+            <button onClick={handleClick}>time_stamp</button>
+            <hr />
+            <Content>
+                {clickArray.map(item => <li key={Math.random()}>{item}</li>)}
+            </Content>
+        </Container >
+    )
 }
