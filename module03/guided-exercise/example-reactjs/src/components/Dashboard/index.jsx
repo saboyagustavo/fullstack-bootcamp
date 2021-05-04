@@ -9,13 +9,9 @@ export function Dashboard() {
         document.title = clickArray.length;
     });
 
-
     const handleClick = () => {
-        const updatedArray = Object.assign([], clickArray);
-        updatedArray.push(getNewTimestamp());
-        console.log(updatedArray);
+        const updatedArray = [...clickArray, getNewTimestamp()];
         setClickArray(updatedArray);
-        console.log(clickArray);
     }
 
     return (
