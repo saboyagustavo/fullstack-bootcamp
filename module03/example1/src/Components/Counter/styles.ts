@@ -2,14 +2,18 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2.5rem;
+    grid-template-columns: repeat(2, 1fr 10%);
+    gap: 1rem;
     align-items: center;
     justify-items: center;
-    max-width: 30%;
-
+    max-width: 40%;
+    margin-bottom:1.25rem;
+    &:last-child {
+        margin: 0;
+    }
+    
     span { 
-        max-width: 2rem;
+        padding: 0 2rem;
         font-weight: bolder;
         font-family: monospace;
         font-size: 2rem;

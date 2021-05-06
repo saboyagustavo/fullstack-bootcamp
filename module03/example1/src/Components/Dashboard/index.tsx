@@ -5,6 +5,8 @@ export const Dashboard = () => {
     return (
         <Container>
             <Counter />
+            <Counter />
+            <Counter />
         </Container>
     );
 }
